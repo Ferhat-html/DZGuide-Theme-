@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:css='false' b:defaultwidgetversion='2' b:layoutsVersion='3' b:responsive='true' b:templateVersion='1.0.0' expr:dir='data:blog.languageDirection' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+<meta charset='UTF-8'/>
+<meta content='width=device-width, initial-scale=1' name='viewport'/>
+<meta content='#1d4ed8' name='theme-color'/>
+<title><data:blog.pageTitle/></title>
+<b:include data='blog' name='all-head-content'/>
+<link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&amp;family=Tajawal:wght@400;700;800&amp;display=swap' rel='stylesheet'/>
+<link href='https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css' rel='stylesheet'/>
+<b:skin><![CDATA[
+:root{--b:#1d4ed8;--b2:#2563eb;--ink:#0f1b3d;--mut:#5b6784;--bg:#f2f6ff;--card:#fff;--line:#dbe5fb;--navy:#0a1a4a}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,Tajawal,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+[dir=rtl] body,[dir=rtl] input,[dir=rtl] select,[dir=rtl] button{font-family:Tajawal,sans-serif}
+a{color:inherit;text-decoration:none}
+.w{max-width:1200px;margin:0 auto;padding:0 16px}
+.hd{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+.hd .w{display:flex;align-items:center;gap:14px;height:64px}
+.logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:24px;color:var(--b)}
+.logo small{display:block;font-size:9px;font-weight:600;color:var(--ink)}
+.nav{display:flex;gap:18px;margin-inline:auto;font-weight:600;font-size:14px}
+.lang{display:flex;gap:4px}
+.lang button{border:1px solid var(--line);background:#fff;border-radius:8px;padding:4px 8px;font-weight:700;font-size:12px;cursor:pointer}
+.lang button.on{background:var(--b);color:#fff;border-color:var(--b)}
+.btn{background:var(--b2);color:#fff;border:0;border-radius:999px;padding:10px 18px;font-weight:700;cursor:pointer;font-size:14px}
+.hero{background:linear-gradient(120deg,#eaf1ff,#cfe0ff);padding:44px 0 28px}
+.hero h1{font-size:clamp(28px,5vw,48px);line-height:1.15;font-weight:800}
+.hero h1 em{display:block;font-style:normal;color:var(--b2)}
+.hero p{margin:12px 0 18px;color:var(--mut);max-width:520px}
+.sb{display:flex;flex-wrap:wrap;gap:8px;background:#fff;border-radius:999px;padding:8px;max-width:640px;box-shadow:0 6px 24px #1d4ed824}
+.sb input,.sb select{border:0;outline:0;background:none;padding:8px 12px;font-size:14px;flex:1;min-width:120px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;font-size:13px}
+.chip{background:#e3ecff;color:var(--b);border:0;border-radius:999px;padding:5px 13px;cursor:pointer;font-weight:600}
+.chip.on{background:var(--b2);color:#fff}
+.cats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:22px 0}
+.cat{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;gap:12px;align-items:center}
+.cat b{display:block;font-size:19px}.cat span{font-size:13px;color:var(--mut)}
+.ic{font-size:34px}
+.pn{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px;margin-bottom:22px}
+.ph{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px;margin-bottom:12px}
+.ph h2{font-size:20px}
+.mg{display:grid;grid-template-columns:1fr 300px;gap:14px}
+#map{height:420px;border-radius:12px;z-index:1}
+.top .it,.fg .it{display:flex;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px}
+.th{width:64px;height:54px;border-radius:10px;background:linear-gradient(135deg,#93b4ff,#1d4ed8);flex:none;background-size:cover;background-position:center}
+.tag{font-size:11px;background:#e3ecff;color:var(--b);border-radius:6px;padding:1px 7px;font-weight:700}
+.fg{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.fg .it{border:1px solid var(--line);border-radius:12px;padding:10px;background:#fff}
+.b3{display:grid;grid-template-columns:1fr 1fr 1.1fr;gap:14px}
+.steps{display:flex;gap:16px;flex-wrap:wrap;font-weight:600;font-size:14px}
+.steps i{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--b2);color:#fff;font-style:normal;margin-inline-end:6px}
+.cta{background:linear-gradient(120deg,var(--navy),var(--b));color:#fff;border-radius:16px;padding:20px}
+.cta .btn{background:#fff;color:var(--b);margin-top:12px}
+.ft{background:var(--navy);color:#cdd8f5;padding:28px 0;font-size:13px;margin-top:10px}
+.ft .w{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center}
+.pl{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;margin:22px 0}
+@media(max-width:860px){.nav{display:none}.cats,.b3,.mg{grid-template-columns:1fr}.fg{grid-template-columns:1fr 1fr}.hd .btn{display:none}.hd .lang{margin-inline-start:auto}}
+@media(max-width:520px){.fg{grid-template-columns:1fr}}
+.biz,.lbs{display:none}
+.dt h1{font-size:clamp(24px,4vw,36px);margin:8px 0}
+.meta{display:flex;flex-wrap:wrap;gap:6px 16px;color:var(--mut);font-size:14px;margin-bottom:14px}
+.ver{background:#dcfce7;color:#166534;border-radius:6px;padding:1px 7px;font-size:12px;font-weight:700}
+.dg{display:grid;grid-template-columns:1fr 340px;gap:18px}
+.dmap{height:240px;border-radius:12px;margin-bottom:12px;z-index:1}
+.acts{display:grid;gap:8px}
+.acts a{display:block;text-align:center;background:var(--b2);color:#fff;border-radius:12px;padding:10px;font-weight:700;font-size:14px}
+.acts a.o{background:#fff;color:var(--b);border:1px solid var(--line)}
+.post-body{line-height:1.8}.post-body img{max-width:100%;height:auto;border-radius:12px}
+.cg{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;align-content:start}
+.cg .it{display:flex;gap:10px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:10px;background:#fff;font-size:14px}
+@media(max-width:860px){.dg,.cg{grid-template-columns:1fr}}
+]]></b:skin>
+</head>
+<body>
+<header class='hd'><div class='w'>
+<a class='logo' href='/'><span>📍</span><span>DzGuide<small>Discover • Connect • Thrive</small></span></a>
+<nav class='nav'><a data-i='explore' href='/#cats'>Explore</a><a data-i='biz' href='/#featured'>Businesses</a><a data-i='map' href='/#mapsec'>Map</a><a data-i='about' href='/#how'>About Us</a><a data-i='contact' href='/p/contact.html'>Contact</a></nav>
+<div class='lang'><button data-l='en' type='button'>EN</button><button data-l='fr' type='button'>FR</button><button data-l='ar' type='button'>AR</button></div>
+<a class='btn' data-i='add' href='/p/add-business.html'>Add Your Business +</a>
+</div></header>
+
+<b:if cond='data:view.isHomepage'>
+<section class='hero'><div class='w'>
+<h1><span data-i='h1a'>Discover Algeria’s</span><em data-i='h1b'>Best Businesses &amp; Services</em></h1>
+<p data-i='sub'>Find startups, real estate agencies and medical clinics across all Algeria, all in one place.</p>
+<div class='sb'><input data-p='ph' id='q' placeholder='What are you looking for?' type='search'/><select aria-label='Wilaya' id='wsel'/><button class='btn' data-i='search' id='go' type='button'>Search</button></div>
+<div class='chips'><b data-i='pop'>Popular searches:</b><button class='chip' data-t='Startups' data-i='Startups' type='button'>Startups</button><button class='chip' data-t='RealEstate' data-i='RealEstate' type='button'>Real Estate</button><button class='chip' data-t='Clinics' data-i='Clinics' type='button'>Clinics</button></div>
+</div></section>
+<div class='w'>
+<div class='cats' id='cats'>
+<a class='cat' href='/search/label/Startups'><span class='ic'>🚀</span><div><b data-i='Startups'>Startups</b><span data-i='dS'>Innovative companies and digital solutions</span></div></a>
+<a class='cat' href='/search/label/RealEstate'><span class='ic'>🏠</span><div><b data-i='RealEstate'>Real Estate</b><span data-i='dR'>Buy, rent or invest in Algeria</span></div></a>
+<a class='cat' href='/search/label/Clinics'><span class='ic'>🩺</span><div><b data-i='Clinics'>Medical Clinics</b><span data-i='dC'>Find the right care near you</span></div></a>
+</div>
+<section class='pn' id='mapsec'>
+<div class='ph'><h2>📍 <span data-i='mapT'>Explore Algeria Map</span></h2><div class='chips' id='tf'><button class='chip on' data-t='' data-i='all' type='button'>All</button><button class='chip' data-t='Startups' data-i='Startups' type='button'>Startups</button><button class='chip' data-t='RealEstate' data-i='RealEstate' type='button'>Real Estate</button><button class='chip' data-t='Clinics' data-i='Clinics' type='button'>Clinics</button></div></div>
+<div class='mg'><div id='map'/><div class='top'><h3>⭐ <span data-i='top'>Top Businesses</span></h3><div id='topl'/></div></div>
+</section>
+<section id='featured'><div class='ph'><h2>⭐ <span data-i='feat'>Featured Places</span></h2></div><div class='fg' id='fl'/></section>
+<section class='b3' style='margin-top:22px'>
+<div class='pn'><h3 data-i='bw'>Browse by Wilaya</h3><div class='chips' id='wchips'/></div>
+<div class='pn' id='how'><h3 data-i='hw'>How It Works ?</h3><div class='steps' style='margin-top:10px'><span><i>1</i><b data-i='s1'>Search &amp; Discover</b></span><span><i>2</i><b data-i='s2'>Explore Details</b></span><span><i>3</i><b data-i='s3'>Connect</b></span></div></div>
+<div class='cta'><h3 data-i='ctaT'>Add Your Business to DzGuide</h3><a class='btn' data-i='ctaB' href='/p/add-business.html'>Get Started</a></div>
+</section>
+<p style='font-size:12px;color:var(--mut)' id='demo'/>
+</div>
+</b:if>
+
+<div class='w'>
+<b:section class='main-section' id='main' maxwidgets='1' showaddelement='no'>
+<b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog' version='2' visible='true'>
+<b:includable id='main' var='this'>
+<b:if cond='data:blog.pageType == &quot;item&quot;'>
+<b:loop values='data:posts' var='post'>
+<article class='pl dt' id='dt'>
+<span class='tag' id='dtype'/> <span id='dver'/>
+<h1 id='dtitle'><data:post.title/></h1>
+<div class='meta' id='dmeta'/>
+<span class='lbs'><b:loop values='data:post.labels' var='label'><i class='lb'><data:label.name/></i></b:loop></span>
+<div class='dg'>
+<div class='post-body' id='dbody'><data:post.body/></div>
+<aside><div class='dmap' id='dmap'/><div class='acts' id='dact'/></aside>
+</div>
+</article>
+<section class='pn'><h3 data-i='sim'>Similar businesses</h3><div class='cg' id='rel'/></section>
+</b:loop>
+<b:elseif cond='data:blog.pageType == &quot;static_page&quot;'/>
+<b:loop values='data:posts' var='post'>
+<div class='pl'><h1><data:post.title/></h1><div class='post-body'><data:post.body/></div></div>
+</b:loop>
+<b:elseif cond='data:view.isLabelSearch'/>
+<section class='pl' id='mapsec' expr:data-label='data:view.search.label'>
+<div class='ph'><h2 id='cattitle'><data:view.search.label/></h2>
+<div class='sb' style='margin:0'><input data-p='ph' id='q' type='search'/><select aria-label='Wilaya' id='wsel'/><button class='btn' data-i='search' id='go' type='button'>Search</button></div></div>
+<div class='mg'><div class='cg' id='fl'/><div id='map'/></div>
+<noscript><b:loop values='data:posts' var='post'><p><a expr:href='data:post.url'><data:post.title/></a></p></b:loop></noscript>
+</section>
+<b:elseif cond='!data:view.isHomepage'/>
+<div class='pl'>
+<b:loop values='data:posts' var='post'><h2><a expr:href='data:post.url'><data:post.title/></a></h2></b:loop>
+</div>
+</b:if>
+</b:includable>
+</b:widget>
+</b:section>
+</div>
+
+<footer class='ft'><div class='w'><b>DzGuide — Discover • Connect • Thrive</b><span>© 2026 DzGuide. <span data-i='rights'>All rights reserved.</span></span></div></footer>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js'/>
+<script>//<![CDATA[
+(function(){
+var T={
+en:{explore:'Explore',biz:'Businesses',map:'Map',about:'About Us',contact:'Contact',add:'Add Your Business +',h1a:'Discover Algeria’s',h1b:'Best Businesses & Services',sub:'Find startups, real estate agencies and medical clinics across all Algeria, all in one place.',ph:'What are you looking for?',search:'Search',pop:'Popular searches:',Startups:'Startups',RealEstate:'Real Estate',Clinics:'Medical Clinics',dS:'Innovative companies and digital solutions',dR:'Buy, rent or invest in Algeria',dC:'Find the right care near you',mapT:'Explore Algeria Map',all:'All',top:'Top Businesses',feat:'Featured Places',bw:'Browse by Wilaya',hw:'How It Works ?',s1:'Search & Discover',s2:'Explore Details',s3:'Connect',ctaT:'Add Your Business to DzGuide',ctaB:'Get Started',rights:'All rights reserved.',allw:'All wilayas',call:'Call',web:'Website',mail:'Email',wa:'WhatsApp',dir:'Get directions',ver:'Verified',sim:'Similar businesses',nores:'No businesses found.',demo:'Demo data shown until real listings are published.'},
+fr:{explore:'Explorer',biz:'Entreprises',map:'Carte',about:'À propos',contact:'Contact',add:'Ajouter votre entreprise +',h1a:'Découvrez les meilleures',h1b:'entreprises et services d’Algérie',sub:'Trouvez startups, agences immobilières et cliniques partout en Algérie, au même endroit.',ph:'Que recherchez-vous ?',search:'Rechercher',pop:'Recherches populaires :',Startups:'Startups',RealEstate:'Immobilier',Clinics:'Cliniques médicales',dS:'Entreprises innovantes et solutions numériques',dR:'Acheter, louer ou investir en Algérie',dC:'Trouvez les bons soins près de chez vous',mapT:'Explorer la carte de l’Algérie',all:'Tout',top:'Meilleures entreprises',feat:'Lieux à la une',bw:'Parcourir par wilaya',hw:'Comment ça marche ?',s1:'Rechercher et découvrir',s2:'Voir les détails',s3:'Contacter',ctaT:'Ajoutez votre entreprise à DzGuide',ctaB:'Commencer',rights:'Tous droits réservés.',allw:'Toutes les wilayas',call:'Appeler',web:'Site web',mail:'E-mail',wa:'WhatsApp',dir:'Itinéraire',ver:'Vérifié',sim:'Entreprises similaires',nores:'Aucune entreprise trouvée.',demo:'Données de démonstration affichées en attendant les vraies fiches.'},
+ar:{explore:'استكشف',biz:'المؤسسات',map:'الخريطة',about:'من نحن',contact:'اتصل بنا',add:'أضف مؤسستك +',h1a:'اكتشف أفضل',h1b:'المؤسسات والخدمات في الجزائر',sub:'ابحث عن الشركات الناشئة والوكالات العقارية والعيادات في كل الجزائر، في مكان واحد.',ph:'عمّ تبحث؟',search:'بحث',pop:'عمليات بحث شائعة:',Startups:'الشركات الناشئة',RealEstate:'العقارات',Clinics:'العيادات الطبية',dS:'شركات مبتكرة وحلول رقمية',dR:'اشترِ أو أجّر أو استثمر في الجزائر',dC:'اعثر على الرعاية المناسبة بالقرب منك',mapT:'استكشف خريطة الجزائر',all:'الكل',top:'أفضل المؤسسات',feat:'أماكن مميزة',bw:'تصفح حسب الولاية',hw:'كيف يعمل؟',s1:'ابحث واكتشف',s2:'اطّلع على التفاصيل',s3:'تواصل',ctaT:'أضف مؤسستك إلى DzGuide',ctaB:'ابدأ الآن',rights:'جميع الحقوق محفوظة.',allw:'كل الولايات',call:'اتصال',web:'الموقع الإلكتروني',mail:'البريد الإلكتروني',wa:'واتساب',dir:'احصل على الاتجاهات',ver:'موثّق',sim:'مؤسسات مشابهة',nores:'لا توجد مؤسسات.',demo:'بيانات تجريبية تظهر إلى حين نشر المؤسسات الحقيقية.'}};
+// TODO: replace with the verified official list of wilayas (AR/FR/EN + coordinates) before launch.
+var WIL=['Algiers','Oran','Constantine','Annaba','Blida','Batna'];
+var TYPES=['Startups','RealEstate','Clinics'];
+var REL=[],DT='',DN='',BIZ=[],lang='en',ft='',fw='',fq='',map,lay,demo=false;
+function $(i){return document.getElementById(i)}
+function tr(k){return (T[lang]||T.en)[k]||k}
+function setLang(l){lang=l;try{localStorage.setItem('dz_lang',l)}catch(e){}
+var h=document.documentElement;h.lang=l;h.setAttribute('dir',l=='ar'?'rtl':'ltr');
+[].forEach.call(document.querySelectorAll('[data-i]'),function(e){e.textContent=tr(e.getAttribute('data-i'))});
+[].forEach.call(document.querySelectorAll('[data-p]'),function(e){e.placeholder=tr(e.getAttribute('data-p'))});
+[].forEach.call(document.querySelectorAll('.lang button'),function(b){b.className=b.getAttribute('data-l')==l?'on':''});
+fillW();render();page()}
+function fillW(){var s=$('wsel');if(!s)return;var v=fw;s.innerHTML='<option value="">'+tr('allw')+'</option>'+WIL.concat(fw&&WIL.indexOf(fw)<0?[fw]:[]).map(function(w){return '<option>'+w+'</option>'}).join('');s.value=v;
+var c=$('wchips');if(c)c.innerHTML=WIL.map(function(w){return '<button class="chip'+(w==fw?' on':'')+'" data-w="'+w+'" type="button">'+w+'</button>'}).join('')}
+function load(){
+var url='/feeds/posts/default?alt=json&max-results=150';
+return fetch(url).then(function(r){return r.json()}).then(function(j){
+var out=[];(j.feed.entry||[]).forEach(function(e){
+var d=new DOMParser().parseFromString((e.content&&e.content.$t)||'','text/html').querySelector('.biz');if(!d)return;
+var cats=(e.category||[]).map(function(c){return c.term});
+var t=cats.filter(function(c){return TYPES.indexOf(c)>-1})[0];if(!t)return;
+var lk=(e.link||[]).filter(function(l){return l.rel=='alternate'})[0];
+out.push({n:e.title.$t,t:t,w:d.getAttribute('data-wilaya')||cats.filter(function(c){return TYPES.indexOf(c)<0})[0]||'',r:parseFloat(d.getAttribute('data-rating'))||0,c:parseInt(d.getAttribute('data-reviews'),10)||0,lat:parseFloat(d.getAttribute('data-lat')),lng:parseFloat(d.getAttribute('data-lng')),u:lk?lk.href:'#',img:e.media$thumbnail?e.media$thumbnail.url.replace(/\/s\d+(-c)?\//,'/s400/'):''})});
+return out}).catch(function(){return []})}
+function demoData(){demo=true;return[
+{n:'TechDz Innovation',t:'Startups',w:'Algiers',r:4.8,c:320,lat:36.77,lng:3.05,u:'#'},
+{n:'Djazair Immobilier',t:'RealEstate',w:'Algiers',r:4.7,c:280,lat:36.74,lng:3.08,u:'#'},
+{n:'Clinique El Amel',t:'Clinics',w:'Algiers',r:4.7,c:195,lat:36.72,lng:3.03,u:'#'},
+{n:'Innovate DZ',t:'Startups',w:'Oran',r:4.8,c:210,lat:35.70,lng:-0.63,u:'#'},
+{n:'Digital Minds',t:'Startups',w:'Constantine',r:4.6,c:128,lat:36.36,lng:6.61,u:'#'}]}
+function flt(){return BIZ.filter(function(b){return(!ft||b.t==ft)&&(!fw||b.w==fw)&&(!fq||(b.n+' '+b.w+' '+tr(b.t)).toLowerCase().indexOf(fq.toLowerCase())>-1)})}
+function esc(x){return String(x).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+function row(b){return '<a class="it" href="'+esc(b.u)+'"><span class="th" style="'+(b.img?'background-image:url('+encodeURI(b.img)+')':'')+'"></span><div><b>'+esc(b.n)+'</b><br/><span class="tag">'+tr(b.t)+'</span> 📍 '+esc(b.w)+' ⭐ '+b.r+' ('+b.c+')</div></a>'}
+function render(){if(!$('fl'))return;var f=flt();
+var tp=$('topl');if(tp)tp.innerHTML=f.slice().sort(function(a,b){return b.r-a.r}).slice(0,3).map(row).join('');
+$('fl').innerHTML=f.length?f.slice(0,tp?4:60).map(row).join(''):'<p>'+tr('nores')+'</p>';
+var dm=$('demo');if(dm)dm.textContent=demo?tr('demo'):'';
+if(map){lay.clearLayers();var pts=[];f.forEach(function(b){if(isNaN(b.lat)||isNaN(b.lng))return;pts.push([b.lat,b.lng]);
+L.marker([b.lat,b.lng]).addTo(lay).bindPopup('<b>'+esc(b.n)+'</b><br/>'+tr(b.t)+' ⭐ '+b.r+'<br/><a href="'+esc(b.u)+'">→</a>')});
+if(pts.length)map.fitBounds(pts,{maxZoom:9,padding:[30,30]})}}
+function relR(){var r=$('rel');if(!r)return;var f=REL.filter(function(b){return b.t==DT&&b.n!=DN}).slice(0,3);
+r.innerHTML=f.map(row).join('');r.parentNode.style.display=f.length?'':'none'}
+function dRender(){var d=$('dt');if(!d)return;
+var bz=d.querySelector('.biz');var A=function(k){return bz?(bz.getAttribute('data-'+k)||''):''};
+var ls=[].map.call(d.querySelectorAll('.lb'),function(x){return x.textContent.trim()});
+DT=ls.filter(function(x){return TYPES.indexOf(x)>-1})[0]||'';
+var w=A('wilaya')||ls.filter(function(x){return TYPES.indexOf(x)<0})[0]||'';
+DN=$('dtitle').textContent;
+$('dtype').textContent=DT?tr(DT):'';
+$('dver').innerHTML=A('verified')=='1'?'<span class="ver">✔ '+tr('ver')+'</span>':'';
+var m=[],loc=[A('commune'),w,A('address')].filter(Boolean).join(' · ');
+if(loc)m.push('📍 '+esc(loc));
+if(A('rating'))m.push('⭐ '+esc(A('rating'))+(A('reviews')?' ('+esc(A('reviews'))+')':''));
+if(A('hours'))m.push('🕒 '+esc(A('hours')));
+$('dmeta').innerHTML=m.map(function(x){return '<span>'+x+'</span>'}).join('');
+var lat=parseFloat(A('lat')),lng=parseFloat(A('lng')),ok=!isNaN(lat)&&!isNaN(lng),ac=[];
+var ph=A('phone').replace(/[^0-9+]/g,''),wa=A('whatsapp').replace(/[^0-9]/g,''),wb=A('website'),em=A('email');
+if(ph)ac.push('<a href="tel:'+ph+'">📞 '+tr('call')+' '+esc(A('phone'))+'</a>');
+if(wa)ac.push('<a class="o" href="https://wa.me/'+wa+'">💬 '+tr('wa')+'</a>');
+if(/^https?:\/\//.test(wb))ac.push('<a class="o" href="'+esc(wb)+'" rel="noopener nofollow">🌐 '+tr('web')+'</a>');
+if(/^[^\s@"<>]+@[^\s@"<>]+$/.test(em))ac.push('<a class="o" href="mailto:'+esc(em)+'">✉️ '+tr('mail')+'</a>');
+if(ok)ac.push('<a class="o" href="https://www.google.com/maps/dir/?api=1&amp;destination='+lat+','+lng+'" rel="noopener">🧭 '+tr('dir')+'</a>');
+$('dact').innerHTML=ac.join('');
+var dm=$('dmap');
+if(!ok){dm.style.display='none'}
+else if(!dm.__m&&window.L){dm.__m=1;var mm=L.map('dmap').setView([lat,lng],14);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'© OpenStreetMap'}).addTo(mm);L.marker([lat,lng]).addTo(mm)}}
+function page(){var c=$('cattitle');if(c&&TYPES.indexOf(ft)>-1)c.textContent=tr(ft);dRender();relR()}
+function chipsOn(){[].forEach.call(document.querySelectorAll('#tf .chip'),function(c){c.className='chip'+(c.getAttribute('data-t')==ft?' on':'')})}
+document.addEventListener('click',function(e){var t=e.target;
+if(t.getAttribute('data-l'))return setLang(t.getAttribute('data-l'));
+if(t.className.indexOf('chip')>-1){
+if(t.hasAttribute('data-w')){fw=fw==t.getAttribute('data-w')?'':t.getAttribute('data-w');fillW()}
+else if(t.hasAttribute('data-t')){ft=t.getAttribute('data-t');chipsOn()}
+render();if($('mapsec'))$('mapsec').scrollIntoView({behavior:'smooth'})}
+if(t.id=='go'){fq=$('q').value;fw=$('wsel').value;fillW();render();$('mapsec').scrollIntoView({behavior:'smooth'})}});
+var q=$('q');if(q)q.addEventListener('keydown',function(e){if(e.key=='Enter')$('go').click()});
+function init(){
+var ms=$('mapsec'),cp=ms?ms.getAttribute('data-label'):null;
+if(cp){if(TYPES.indexOf(cp)>-1)ft=cp;else fw=cp}
+if($('map')){map=L.map('map').setView([28.5,2.6],5);L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'© OpenStreetMap'}).addTo(map);lay=L.layerGroup().addTo(map);
+load().then(function(r){BIZ=r.length?r:($('cats')?demoData():[]);render()})}
+if($('rel'))load().then(function(r){REL=r;relR()});
+var s;try{s=localStorage.getItem('dz_lang')}catch(e){}
+setLang(s||'en')}
+init();
+})();
+//]]></script>
+</body>
+</html>
